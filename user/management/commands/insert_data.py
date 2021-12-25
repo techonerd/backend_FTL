@@ -81,7 +81,7 @@ class Command(BaseCommand):
         BUILD_DATA = {
             1: self.setup_data
         }
-        for key in BUILD_DATA.keys():
+        for key, value in BUILD_DATA.items():
             print("Started '{} - {}' process".format(key,
                                                      BUILD_DATA[key].__name__))
 
@@ -93,8 +93,7 @@ class Command(BaseCommand):
                     count = 100
                 print("Inserting {} data".format(count))
                 BUILD_DATA[key](count)
-                print("Completed '{} - {}' process".format(key,
-                                                           BUILD_DATA[key].__name__))
+                print("Completed '{} - {}' process".format(key, value.__name__))
             except Exception as e:
                 print(
                     "Error Occurred in '{} - {}' process - {}".format(key, BUILD_DATA[key].__name__,
